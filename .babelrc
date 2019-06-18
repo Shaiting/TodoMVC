@@ -1,0 +1,30 @@
+{
+  // babelrc文件是babel的配置文件
+  // 主要适用于编译es6转义为es5
+  //  "presets"表示预设，表示babel预先需要安装的一些插件。
+  //  stage表示ECMA的草案，后面的数字表示草案的阶段，数字越小表示包含的草案就越多
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false,
+        "targets": {
+          "browsers": [
+            "> 1%",
+            "last 2 versions",
+            "not ie <= 8"
+          ]
+        }
+      }
+    ],
+    "stage-2"
+  ],
+  //  表示其他的预设插件，其他的预设插件都是通过plugins来配置的，
+  //  transform-runtime表示把ES6的一些语法进行一些特殊的转化例如将ES6转化成ES5
+  //  transform-vue-jsx：JSX是基于Javascript的语言扩展， 它允许在Javascript代码中插入XML语法风格的代码。
+  //  预设这个之后在babel和webpack打包的时候就会将JSX的语法编译为js（PS；浏览器默认是解析不了JSX的）
+  "plugins": [
+    "transform-vue-jsx",
+    "transform-runtime"
+  ]
+}
